@@ -1,10 +1,11 @@
 {
-    "name": "Receiver",
+    "name": "bit-motorbike",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "wuKong": "github:elecfreaks/pxt-wukong#v1.5.4"
     },
     "files": [
         "main.blocks",

@@ -1,19 +1,30 @@
 radio.onReceivedValue(function (name, value) {
-    num = parseFloat("")
     if (name == "x") {
         sprite.change(LedSpriteProperty.X, value)
+        left = 0 - value
+        right = value
     } else if (name == "y") {
         sprite.change(LedSpriteProperty.Y, value)
+        speed = value
     } else if (name == "button_c") {
-        sprite.set(LedSpriteProperty.Brightness, 10)
+        music.playMelody("G G G C5 C5 - E E ", 500)
+        music.playMelody("C5 - C5 B B A A G ", 404)
     } else if (name == "button_d") {
-        sprite.set(LedSpriteProperty.Brightness, 254)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 92, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
     } else if (name == "button_e") {
-        sprite.set(LedSpriteProperty.Blink, 100)
+    	
     } else {
-        sprite.set(LedSpriteProperty.Blink, 0)
+    	
     }
+    wuKong.setAllMotor(speed * 30 + left * 20, speed * 30 + right * 20)
 })
-let num = 0
+let right = 0
+let left = 0
+let speed = 0
 let sprite: game.LedSprite = null
 sprite = game.createSprite(2, 2)
+speed = 0
+left = 0
+right = 0
+wuKong.stopAllMotor()
+wuKong.setLightMode(wuKong.LightMode.BREATH)
