@@ -7,13 +7,16 @@ radio.onReceivedValue(function (name, value) {
             strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Orange))
         } else if (left > 0) {
             strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Orange))
-        } else {
-        	
         }
         strip.show()
     } else if (name == "y") {
-        speed = value
+        speed = 0 - value
         basic.showIcon(IconNames.Happy, 0)
+if (speed < 0) {
+            strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+            strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+            strip.show()
+        }
     } else if (name == "button_c") {
         music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 924, 894, 255, 101, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
         music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 924, 894, 255, 101, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
